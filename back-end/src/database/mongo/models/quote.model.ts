@@ -6,7 +6,7 @@ const QuoteSchema = new Schema<QuoteEntity>({
 	lastname: { type: String, required: [true, 'lastname is required'] },
 	doctor: {
 		type: Schema.Types.ObjectId,
-		ref: 'Users',
+		ref: 'Doctors',
 		required: [true, 'doctor is required'],
 	},
 	reason: { type: String, required: [true, 'reason is required'] },

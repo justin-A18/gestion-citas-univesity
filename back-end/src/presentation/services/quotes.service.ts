@@ -7,7 +7,10 @@ import { Validations } from '../../config';
 export class QuotesService {
 	public async getAllQuotes() {
 		try {
-			const quotes = await QuoteModel.find().populate('doctor', 'fullname');
+			const quotes = await QuoteModel.find({ active: true }).populate(
+				'doctor',
+				'fullname'
+			);
 
 			return {
 				quotes,

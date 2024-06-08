@@ -27,7 +27,7 @@ export class AuthService {
 			);
 
 			if (!isValidPassword) {
-				return CustomError.badRequest('Creadenciales invalidas');
+				throw CustomError.badRequest('Creadenciales invalidas');
 			}
 
 			//* JWT para mantener la autenticación del usuario
@@ -42,7 +42,7 @@ export class AuthService {
 
 			return {
 				user: userEntity,
-				token
+				token,
 			};
 		} catch (error) {
 			throw CustomError.internalServer(`${error}`);
@@ -51,24 +51,25 @@ export class AuthService {
 
 	public async registerUser(registerUserDto: RegisterUserDto) {
 		try {
-
-			const existUser = await UserModel.findOne({ email: registerUserDto.email });
-			if (existUser) throw CustomError.badRequest("El email ya existe");
+			const existUser = await UserModel.findOne({
+				email: registerUserDto.email,
+			});
+			if (existUser) throw CustomError.badRequest('El email ya existe');
 
 			const user = new UserModel(registerUserDto);
 
 			user.password = this.hashPassword(registerUserDto.password);
-			
+
 			await user.save();
 
-			const {password, ...userEntity} = UserEntity.fromObject(user);
+			const { password, ...userEntity } = UserEntity.fromObject(user);
 
-			const token = await JwtAdapter.generateToken({id: user.id});
-			if (!token) throw CustomError.internalServer("Error while creating JWT");
+			const token = await JwtAdapter.generateToken({ id: user.id });
+			if (!token) throw CustomError.internalServer('Error while creating JWT');
 
 			return {
 				user: userEntity,
-				token
+				token,
 			};
 		} catch (error) {
 			throw CustomError.internalServer(`${error}`);

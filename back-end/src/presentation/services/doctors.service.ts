@@ -1,5 +1,4 @@
 import { DoctorModel } from '../../database/mongo';
-import { UserEntity } from '../../domain/entities';
 import { CustomError } from '../../domain/errors';
 
 export class DoctorsService {
