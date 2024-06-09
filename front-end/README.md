@@ -37,9 +37,11 @@ Para acceder a las funcionalidades de administración, utiliza las siguientes cr
 4. Inicia la aplicación:
    ```bash
      yarn dev
-   
+5. Iniciar aplicación del backend
+   [doc backend](https://github.com/justin-A18/gestion-citas-univesity/tree/main/back-end)
+
 ## Uso
-1. Accede a la aplicación en tu navegador en http://localhost:3000.
+1. Accede a la aplicación en tu navegador en http://localhost:5173.
 2. Inicia sesión con las credenciales del administrador proporcionadas anteriormente.
 3. Utiliza la barra de navegación para acceder a las secciones de citas y doctores.
 4. Crea, elimina, actualiza y lista citas y doctores según sea necesario.
