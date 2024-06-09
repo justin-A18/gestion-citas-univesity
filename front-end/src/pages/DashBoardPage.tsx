@@ -39,14 +39,30 @@ export const DashBoardPage = () => {
 				<TableBody>
 					{quotesQuery.isLoading && (
 						<TableRow>
-							<TableCell className='text-center'>
+							<TableCell
+								colSpan={7}
+								className='text-center'>
 								<i className='bx bx-loader-alt bx-spin bx-lg'></i>
 							</TableCell>
 						</TableRow>
 					)}
 
+					{!quotesQuery.isLoading && quotesQuery.isError && (
+						<TableRow>
+							<TableCell
+								colSpan={7}
+								className='text-center'>
+								<p>Error loading quotes</p>
+							</TableCell>
+						</TableRow>
+					)}
+
 					{!quotesQuery.isLoading &&
-						(quotesQuery?.data as QuotesResponse).quotes.map(
+					!quotesQuery.isError &&
+					quotesQuery.data &&
+					(quotesQuery.data as unknown as QuotesResponse).quotes &&
+					(quotesQuery.data as unknown as QuotesResponse).quotes.length > 0 ? (
+						(quotesQuery.data as unknown as QuotesResponse).quotes.map(
 							({ createAt, endAt, doctor, lastname, name, reason, id }) => (
 								<TableRow key={id}>
 									<TableCell>{name}</TableCell>
@@ -76,7 +92,16 @@ export const DashBoardPage = () => {
 									</TableCell>
 								</TableRow>
 							)
-						)}
+						)
+					) : (
+						<TableRow>
+							<TableCell
+								colSpan={7}
+								className='text-center'>
+								No hay citas disponibles
+							</TableCell>
+						</TableRow>
+					)}
 				</TableBody>
 			</Table>
 		</div>
