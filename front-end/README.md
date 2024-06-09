@@ -1,30 +1,53 @@
-# React + TypeScript + Vite
+# Gestión de Citas University - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es el frontend de la aplicación para la gestión de citas en una universidad. Está construido utilizando React y proporciona una interfaz de usuario para que el administrador gestione citas y doctores.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La aplicación frontend ofrece las siguientes funcionalidades:
 
-## Expanding the ESLint configuration
+- **Inicio de sesión**: Permite al administrador iniciar sesión con sus credenciales.
+- **Gestión de citas**:
+  - **Crear cita**: Formulario para que el administrador cree nuevas citas.
+  - **Eliminar cita**: Opción para que el administrador elimine citas existentes.
+  - **Actualizar cita**: Formulario para que el administrador actualice la información de las citas.
+  - **Listar citas**: Vista para que el administrador vea una lista de todas las citas programadas.
+- **Gestión de doctores**:
+  - **Listar doctores**: Vista para que el administrador vea una lista de todos los doctores disponibles.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Credenciales del Administrador
 
-- Configure the top-level `parserOptions` property like this:
+Para acceder a las funcionalidades de administración, utiliza las siguientes credenciales:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Email**: test1@gmail.com
+- **Password**: 123456
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Instalación
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/justin-A18/gestion-citas-univesity.git
+2. Acceder a la carpeta front-end
+   ```bash
+     cd gestion-citas-univesity/front-end
+3. Instala las dependencias necesarias:
+   ```bash
+     yarn
+4. Inicia la aplicación:
+   ```bash
+     yarn dev
+   
+## Uso
+1. Accede a la aplicación en tu navegador en http://localhost:3000.
+2. Inicia sesión con las credenciales del administrador proporcionadas anteriormente.
+3. Utiliza la barra de navegación para acceder a las secciones de citas y doctores.
+4. Crea, elimina, actualiza y lista citas y doctores según sea necesario.
+
+## Tecnologias
+- **TypeScript:** Superconjunto de JavaScript que añade tipos estáticos.
+- **React:** Librería de JavaScript para construir interfaces de usuario.
+- **Axios:** Para hacer peticiones HTTP al backend.
+- **Tailwind CSS:** Framework de CSS para diseñar interfaces de usuario.
+- **React Query**: Para el manejo de peticiones y caché de datos.
+- **Zustand:** Librería para manejo del estado global de la aplicación.
